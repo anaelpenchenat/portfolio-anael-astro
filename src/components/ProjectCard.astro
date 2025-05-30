@@ -1,0 +1,26 @@
+---
+const { title, link, github, image } = Astro.props;
+---
+
+<div class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-80">
+  <!-- Image en arrière-plan -->
+  <div 
+    class="flex-1 bg-cover bg-center"
+    style={`background-image: url('${image}')`}
+  ></div>
+
+  <!-- Footer avec titre et liens -->
+  <div class="p-4 flex flex-col gap-2 bg-white">
+    <h3 class="text-lg font-semibold">{title}</h3>
+    <div class="flex gap-4">
+      <a href={link} target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">
+        Voir le projet
+      </a>
+      {github && (
+        <a href={github} target="_blank" rel="noopener noreferrer" class="bg-gray-800 text-white px-3 py-1 rounded hover:bg-gray-700 transition">
+          GitHub
+        </a>
+      )}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+---
+---
+
+<style>
+  .fade-text {
+    position: relative;
+    height: 2.5rem; /* Ajuste selon ta taille de texte */
+    overflow: hidden;
+  }
+  .fade-text span {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+    font-weight: 600;
+  }
+  .fade-text span.active {
+    position: relative;
+    opacity: 1;
+  }
+</style>
+
+<div class="fade-text text-3xl text-blue-700">
+  <span class="active">안녕하세요</span>       <!-- Coréen -->
+  <span>你好</span>                           <!-- Chinois simplifié -->
+  <span>Bonjour</span>                       <!-- Français -->
+  <span>Hello</span>                         <!-- Anglais -->
+  <span>Hola</span>                          <!-- Espagnol -->
+  <span>こんにちは</span>                     <!-- Japonais -->
+  <span>Hallo</span>                         <!-- Allemand -->
+  <span>Olá</span>                           <!-- Portugais -->
+  <span>Здравствуйте</span>                  <!-- Russe -->
+  <span>مرحبا</span>                         <!-- Arabe -->
+</div>
+
+<script>
+  const spans = document.querySelectorAll('.fade-text span');
+  let current = 0;
+
+  setInterval(() => {
+    spans[current].classList.remove('active');
+    current = (current + 1) % spans.length;
+    spans[current].classList.add('active');
+  }, 3000);
+</script>

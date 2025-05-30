@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+html {
+  scroll-padding-top: 140px; /* hauteur navbar mobile */
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 0; /* pas nécessaire en desktop */
+  }
+}

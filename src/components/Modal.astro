@@ -1,0 +1,122 @@
+---
+const { show } = Astro.props;
+---
+
+{show && (
+  <div id="modal" class="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-xl max-w-2xl w-full p-6 text-gray-800 overflow-auto max-h-[90vh] border border-gray-200 relative">
+      <button 
+        id="close-modal" 
+        class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-xl font-bold"
+        aria-label="Fermer"
+      >
+        &times;
+      </button>
+
+      <h2 class="text-2xl font-semibold mb-4 text-[#1f2937]">Mon Parcours</h2>
+
+      <!-- Éducation -->
+      <section class="mb-6">
+        <h3 class="text-xl font-semibold text-blue-700 mb-2">🎓 Éducation</h3>
+        <ul class="space-y-2">
+          <li class="bg-gray-100 rounded-lg px-4 py-2"><strong>IPI École d’informatique</strong> – Bachelor Développeur (2025–2026), rythme 3s/1s</li>
+          <li class="bg-gray-100 rounded-lg px-4 py-2"><strong>OpenClassrooms</strong> – Bac+2, obtenu en 2024</li>
+          <li class="bg-gray-100 rounded-lg px-4 py-2"><strong>Bac Pro Commerce</strong>, obtenu en 2012</li>
+        </ul>
+      </section>
+
+      <!-- Compétences techniques -->
+      <section class="mb-6">
+        <h3 class="text-xl font-semibold text-blue-700 mb-2">🛠️ Stack Technique</h3>
+        <div class="grid grid-cols-2 gap-4 text-sm text-gray-700">
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-1">Langages & Frameworks</h4>
+            <ul class="space-y-1">
+              <li class="bg-gray-100 rounded-md px-3 py-1">JavaScript</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">React, Node.js</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">MongoDB, Express.js</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Astro, TailwindCSS</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">HTML/CSS</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-1">Outils & AI</h4>
+            <ul class="space-y-1">
+              <li class="bg-gray-100 rounded-md px-3 py-1">GitHub, Postman</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">MongoDB, NoSQL</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Figma, Cursor</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">ChatGPT, Windsurf</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Linux (Ubuntu)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Compétences personnelles -->
+      <section class="mb-6">
+        <h3 class="text-xl font-semibold text-blue-700 mb-2">🧠 Compétences personnelles</h3>
+        <div class="grid grid-cols-2 gap-4 text-sm text-gray-700">
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-1">Hard Skills</h4>
+            <ul class="space-y-1">
+              <li class="bg-gray-100 rounded-md px-3 py-1">Gestion de projet</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Méthode Agile</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Conception UI</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Optimisation des performances</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Versionning GitHub</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Développement fullstack</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Manipulation API</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Communication</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Publier un site web</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-800 mb-1">Soft Skills</h4>
+            <ul class="space-y-1">
+              <li class="bg-gray-100 rounded-md px-3 py-1">Créativité</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Adaptabilité</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Sens des responsabilités</li>
+              <li class="bg-gray-100 rounded-md px-3 py-1">Esprit d’équipe</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Centres d’intérêt -->
+      <section>
+        <h3 class="text-xl font-semibold text-blue-700 mb-2">🎮 Centres d’intérêt</h3>
+        <ul class="space-y-2">
+          <li class="bg-gray-100 rounded-lg px-4 py-2">Cultures coréenne & japonaise</li>
+          <li class="bg-gray-100 rounded-lg px-4 py-2">Voyages</li>
+          <li class="bg-gray-100 rounded-lg px-4 py-2">Jeux vidéo solo & coop</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+)}
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("modal");
+    const openBtn = document.getElementById("open-modal");
+    const closeBtn = document.getElementById("close-modal");
+
+    if (modal && openBtn) {
+      openBtn.addEventListener("click", () => {
+        modal.classList.remove("hidden");
+      });
+    }
+
+    if (modal && closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        modal.classList.add("hidden");
+      });
+
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.add("hidden");
+        }
+      });
+    }
+  });
+</script>

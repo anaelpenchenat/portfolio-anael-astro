@@ -1,0 +1,61 @@
+---
+import Sidebar from '../components/Sidebar.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import Modal from './Modal.astro';
+
+const showModal = true; // À remplacer plus tard par un état dynamique si besoin
+---
+
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anaël | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600&display=swap" rel="stylesheet">
+  </head>
+  <body id="top" class="font-['Noto_Sans_KR'] text-gray-800 min-h-screen flex flex-col md:flex-row relative bg-[#f4f8fb]">
+    <img src="/kor-wave-bg.svg" alt="" class="absolute top-0 left-0 w-full h-full object-cover -z-10 opacity-60" />
+
+    <!-- Sidebar -->
+    <Sidebar />
+    
+
+    <!-- Modale (à afficher en haut pour être en z-50 au-dessus de tout) -->
+    <Modal show={showModal} />
+
+    <!-- Main Content -->
+    <main class="flex-1 p-10 space-y-20 mt-[140px] md:mt-0 md:ml-64">
+     <section id="about" class="max-w-3xl flex flex-col md:flex-row items-center gap-8">
+  <img 
+    src="/anael.jpeg" 
+    alt="Photo d'Anaël" 
+    class="w-40 h-40 object-cover rounded-full shadow-lg border-4 border-white bg-white" 
+    loading="lazy"
+  />
+  <div>
+    <h2 class="text-3xl font-semibold mb-4">
+      <LanguageSwitcher />
+    </h2>
+    <p class="text-lg leading-relaxed mt-4">
+     « Développeur web junior, motivé par l’apprentissage continu, je conçois des interfaces intuitives tout en explorant le développement côté serveur pour des applications fiables. »</p>        
+    <button id="open-modal"
+      class="mt-6 inline-flex items-center gap-2 text-sm text-blue-600 bg-white border border-blue-200 rounded-full px-5 py-2 shadow-sm hover:bg-blue-50 hover:shadow-md transition duration-200 ease-in-out backdrop-blur-sm">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 1.105-.895 2-2 2s-2-.895-2-2 .895-2 2-2 2 .895 2 2zm0 0v8m0-8a4 4 0 110-8 4 4 0 010 8z" />
+      </svg>
+      Mon parcours
+    </button>
+  </div>
+</section>
+
+      <Projects />
+      <Contact />
+
+      <footer class="text-sm text-gray-400 mt-6 border-t border-gray-300 pt-6 text-center select-none">
+  <p>© 2025 Anaël. Tous droits réservés.</p>
+</footer>
+    </main>
+  </body>
+</html>
