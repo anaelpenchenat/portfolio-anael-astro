@@ -21,10 +21,10 @@
 </style>
 
 <div class="fade-text text-3xl text-blue-700">
-  <span class="active">안녕하세요</span>       <!-- Coréen -->
+  <span class="active">Bonjour</span>       <!-- Français -->
   <span>你好</span>                           <!-- Chinois simplifié -->
-  <span>Bonjour</span>                       <!-- Français -->
   <span>Hello</span>                         <!-- Anglais -->
+  <span>안녕하세요</span>                       <!-- Coréen -->
   <span>Hola</span>                          <!-- Espagnol -->
   <span>こんにちは</span>                     <!-- Japonais -->
   <span>Hallo</span>                         <!-- Allemand -->
@@ -41,5 +41,5 @@
     spans[current].classList.remove('active');
     current = (current + 1) % spans.length;
     spans[current].classList.add('active');
-  }, 3000);
+  }, 2000);
 </script>
